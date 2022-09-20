@@ -1,13 +1,13 @@
 /**
  * Web application
  */
-const apiUrl = 'https://us-south.functions.cloud.ibm.com/api/v1/namespaces/utrechtenov%40gmail.com_dev/strings';
+const apiUrl = 'https://us-south.functions.appdomain.cloud/api/v1/web/utrechtenov%40gmail.com_dev/strings/prepare-entry-for-save';
 const guestbook = {
   // retrieve the existing guestbook entries
   get() {
     return $.ajax({
       type: 'GET',
-      url: `${apiUrl}/read-guestbook-entries-sequence.json`,
+      url: 'https://us-south.functions.appdomain.cloud/api/v1/web/utrechtenov%40gmail.com_dev/strings/read-guestbook-entries-sequence',
       dataType: 'json'
     });
   },
@@ -16,7 +16,7 @@ const guestbook = {
     console.log('Sending', name, email, comment)
     return $.ajax({
       type: 'PUT',
-      url: `${apiUrl}/save-guestbook-entry-sequence.json`,
+      url: 'https://us-south.functions.appdomain.cloud/api/v1/web/utrechtenov%40gmail.com_dev/strings/save-guestbook-entry-sequence',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
         name,
